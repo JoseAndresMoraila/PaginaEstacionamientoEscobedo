@@ -1,3 +1,10 @@
-Cuando pongas los archivos en la carpeta C:\xampp\mysql\data\ recuerda crear una carpeta ahí con el nombre de 'paginaestacionamiento' ya que ese nombre está en el 
-código PHP el cual hace que se comunique con la base de datos con ese nombre y posteriormente descarga los archivos puestos en esta carpeta 'databasePaginaEstacionamiento'
-y ponlos en la carpeta 'paginaestacionamiento' que creaste para así tener la base de datos y tablas que creé.
+Te vas a 'localhost/phpmyadmin/' y te vas a crear una nueva base de datos con el nombre 'paginaestacionamiento' o si deseas cambiarlo te vas a "index.php" y le cambias
+el nombre de base de datos en la línea 5 a un nombre que tú quieras y le pones ese mismo nombre a la base de datos que quieres crear en phpmyadmin. 
+
+Posteriormente te vas a crear una tabla con el nombre de 'formularioest' o si le deseas cambiar el nombre te vas a "index.php" y en la línea 138 le cambias el nombre al
+que tú deseas y ese mismo nombre lo escribes en phpmyadmin al momento de ponerle nombre a la tabla y le picas que tenga dos columnas.
+
+Luego en la primera columna le pones como nombre 'rankingdb' que sea un INT y la segunda 'mensajedb' que sea VARCHAR con longitud de 250  o si le deseas cambiar el 
+nombre te vas a "index.php" y en la línea 138 le cambias el nombre a esas dos columnas y tiene que ser el mismo que pusiste en la tabla de phpmyadmin. Como dato adicional
+si quieres cambiar la longitud del mensaje tienes que modificar en la línea 122 de "index.php" en "maxlenght" al que tú deseas y ese mismo pondrás en phpmyadmin al momento
+de configurar la columna.
