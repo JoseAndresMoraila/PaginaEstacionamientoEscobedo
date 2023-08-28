@@ -135,7 +135,7 @@
                 $ranking = intval($_POST["ranking"]);
                 $mensaje = filter_input(INPUT_POST, "mensaje", FILTER_SANITIZE_SPECIAL_CHARS);
 
-                $sql = "INSERT INTO formulario (rankingdb, mensajedb) VALUES ('$ranking', '$mensaje')";
+                $sql = "INSERT INTO formularioest (rankingdb, mensajedb) VALUES ('$ranking', '$mensaje')";
 
                 mysqli_query($conexion, $sql);
                 mysqli_close($conexion);
