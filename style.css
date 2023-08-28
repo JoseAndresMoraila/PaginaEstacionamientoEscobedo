@@ -1,0 +1,272 @@
+header {
+    background-color: rgb(168, 168, 104);
+    text-align: center;
+    font-size: 75px;
+    font-family: 'Courier', sans-serif;
+}
+
+img.Encabezado {
+    position: absolute;
+    right: 50px;
+    width: 90px;
+}
+
+main {
+    background-color: rgb(163, 163, 103);
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 40px;
+    text-align: justify;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.Mapa {
+    background-color: rgb(163, 163, 103);
+    padding: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    max-width: 410px;
+    display: flex; /* Agregado: Hacer el contenedor flexible */
+    align-items: center; /* Agregado: Alinear verticalmente */
+    border-radius: 30px;
+    height: auto;
+}
+
+div.contenedor-divs {
+    display: flex;
+}
+
+div.contenedor-texto {
+    margin-left: 15px;
+    font-size: 20px;
+    color: rgb(0, 0, 0); /* Cambia el color del texto */
+}
+
+.Deslizador{ /*Hacemos que practicamente todo el deslizador tenga esas caracteristicas donde los borders en sus angulos tengan una forma circular
+    de 10px y donde los elementos que se salgan de la clase en div se esconda, es decir que las fotos no estén uno al lado de otro o abajo amontonadas */
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 100px;
+}
+.Deslizadores{ /*Dentro de esta clase incluye las fotos que pusimos y los botones que indican en que foto estamos y le pusimos flex es decir que si
+    ya no caben no se pongan los elementos hacia abajo sino hacia la derecha*/
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+.Deslizadores input{ /*Hacemos que dentro de la clase Deslizadores los elementos input no aparezcan*/
+    display: none;
+}
+.FotoEstacionamiento{/*20%;: Esto establece el ancho de los elementos con la clase .FotoEstacionamiento al 20% del ancho de su contenedor 
+    principal. En otras palabras, los elementos con esta clase ocuparán el 20% del ancho disponible dentro de su contenedor.*/
+    width: 20%;
+    /*Esta propiedad agrega una transición suave de 2 segundos a los cambios que ocurran en los elementos con la clase .FotoEstacionamiento.
+     Esto significa que cuando se realicen cambios en las propiedades CSS de estos elementos, como el ancho, la transición tomará 2 segundos 
+     para aplicarse, creando un efecto de cambio suave.*/
+    transition: 2s;
+}
+
+.FotoEstacionamiento img{
+    width: 800px;
+    height: 500px;
+}
+
+/*CSS para el deslizamiento de navegación manual*/
+.NavegacionManual{
+    position: absolute; /* Establece la posición del elemento como "absoluta". Esto significa que el elemento se posicionará en relación con su primer elemento ascendente con una posición que no sea estática (por defecto), lo que le permite colocarse en una ubicación específica de la página.*/
+    width: 800px;/* Establece el ancho del elemento con la clase .NavegacionManual en 800 píxeles.*/
+    margin-top: -40px;/*Aplica un margen negativo en la parte superior del elemento, lo que hará que se desplace hacia arriba en 40 píxeles. Esto puede ser útil para superponer el elemento en la parte superior de otro contenido.*/
+    display: flex;/*Aplica el modelo de diseño flexbox al elemento, lo que permite un fácil control de la alineación y distribución de los elementos secundarios dentro del contenedor.*/
+    justify-content: center;/* Establece la alineación horizontal del contenido dentro del elemento en el centro. Los elementos secundarios dentro del contenedor .NavegacionManual se alinearán horizontalmente en el centro.*/
+}
+.BotonManual{
+    border: 2px solid red;/*Esto establece un borde de 2 píxeles de ancho y de tipo sólido en color rojo alrededor de los elementos con la clase .BotonManual.*/
+    padding: 5px;/* Agrega un espacio interno de 5 píxeles entre el contenido del elemento y su borde. Esto permite que el contenido dentro del elemento no quede muy cerca del borde.*/
+    border-radius: 10px; /*Establece un radio de esquina de 10 píxeles para redondear las esquinas del borde del elemento. Esto crea un aspecto más suave para el botón.*/
+    cursor: pointer;/*Cambia el cursor cuando pasa sobre el elemento con la clase .BotonManual a un ícono de puntero, indicando que es interactivo y se puede hacer clic.*/
+    transition: 0.5s;/*Agrega una transición suave de 1 segundo a cualquier cambio que ocurra en las propiedades CSS de los elementos con la clase .BotonManual. Esto crea un efecto suave cuando el usuario interactúa con el botón.*/
+}
+.BotonManual:not(:last-child){ /* Esta parte de la regla selecciona todos los elementos con la clase .BotonManual que no sean el último hijo 
+    (o el último elemento) de su contenedor padre. Es decir selecciona los primeros dos labels donde esta la clase y el ultimo no*/
+    margin-right: 40px;/*Aplica un margen derecho de 40 píxeles a todos los elementos seleccionados. Esto crea un espacio de 40 píxeles entre los elementos, excepto el último.*/
+}
+.BotonManual:hover{ /*Cuando se pase el cursor por ahí su fondo sera del color seleccionado*/
+    background: red;
+}
+
+/*En este caso, estás utilizando el selector ~ para aplicar estilos a las imágenes con la clase .PrimeraFoto que son hermanos adyacentes de los radio
+ buttons seleccionados. El uso de transition con un valor de 2s significa que cualquier cambio en el estilo tendrá una transición suave de 2 
+ segundos, lo que crea un efecto de deslizamiento suave cuando cambias entre las imágenes. Las propiedades margin-left están siendo utilizadas
+  para ajustar el margen izquierdo de las imágenes y lograr el efecto de deslizamiento.*/
+#Radio1:checked ~ .PrimeraFoto{
+    transition: 2s;
+    margin-left: 0;
+}
+#Radio2:checked ~ .PrimeraFoto{
+    transition: 2s;
+    margin-left: -25.6%;
+}
+#Radio3:checked ~ .PrimeraFoto{
+    transition: 2s;
+    margin-left: -45.6%;
+}
+
+/*CSS para navegación automatica*/
+.NavegacionAuto{
+    position: absolute; /* Esto establece la posición del elemento .NavegacionAuto como "absoluta". Esto significa que el elemento se posicionará en relación con su primer elemento ascendente con una posición que no sea estática (por defecto), lo que le permite colocarse en una ubicación específica de la página.*/
+    display: flex; /*Esto aplica el modelo de diseño flexbox al elemento .NavegacionAuto, lo que permite un fácil control de la alineación y distribución de los elementos secundarios dentro del contenedor.*/
+    width: 800px;/* Establece el ancho del elemento .NavegacionAuto en 800 píxeles.*/
+    justify-content: center;/* Establece la alineación horizontal del contenido dentro del elemento en el centro. Los elementos secundarios dentro del contenedor .NavegacionAuto se alinearán horizontalmente en el centro.*/
+    margin-top: 460px;/*: Aplica un margen superior de 460 píxeles al elemento .NavegacionAuto, lo que lo desplazará hacia abajo en la página. Esto puede ser útil para posicionar el elemento de navegación automática en una ubicación específica en relación con el contenido anterior en la página.*/
+}
+.NavegacionAuto div{ /*Este fragmento de código define el estilo de los elementos div que están dentro de la clase .NavegacionAuto en tu slider.
+     Aquí tienes una explicación de cada propiedad utilizada:*/
+    border: 2px solid red; /*Establece un borde de 2 píxeles de ancho, de tipo sólido y en color rojo alrededor de los elementos div dentro de la clase .NavegacionAuto.*/
+    padding: 5px;/*Agrega un espacio interno de 5 píxeles entre el contenido del elemento div y su borde. Esto permite que el contenido dentro del elemento tenga un espacio adecuado con respecto al borde.*/
+    border-radius: 10px;/* Establece un radio de esquina de 10 píxeles para redondear las esquinas del borde del elemento div. Esto crea un aspecto más suave para los botones de navegación.*/
+    transition: 0.5s;/*Agrega una transición suave de 0.5 segundo a cualquier cambio que ocurra en las propiedades CSS de los elementos div dentro de la clase .NavegacionAuto. Esta transición crea un efecto suave cuando el usuario interactúa con los botones de navegación, como cuando pasa el cursor sobre ellos.*/
+}
+.NavegacionAuto div:not(:last-child){ /*Este fragmento de código aplica estilos específicos a los elementos div que están dentro de la clase 
+    .NavegacionAuto, excluyendo el último hijo. Aquí tienes una explicación de la pseudo-clase :not(:last-child) y la propiedad margin-right
+     utilizadas. Selecciona todos los elementos div que son hijos de la clase .NavegacionAuto y que no son el último hijo (es decir, todos
+      excepto el último elemento).*/
+    margin-right: 40px; /*Aplica un margen derecho de 40 píxeles a los elementos seleccionados. Esto crea un espacio de 40 píxeles entre cada 
+    uno de los elementos div, excepto el último, lo que mejora la distribución visual de los botones de navegación.*/
+}
+#Radio1:checked ~ .NavegacionAuto .AutoBoton1{
+    background: red;
+}
+/* 1.- #Radio1:checked: Selecciona el radio button con el id Radio1 cuando está marcado.
+
+2.- ~: Es el selector de hermanos generales en CSS. Significa que se seleccionarán los elementos que son hermanos de los elementos que cumplen con
+ la parte anterior del selector. En este caso, selecciona elementos que son hermanos de #Radio1:checked. 
+
+ 3.- .NavegacionAuto .AutoBoton1: Selecciona el elemento con la clase AutoBoton1 que está dentro de un elemento con la clase NavegacionAuto. Esto se aplica a uno de los botones de 
+ navegación automática en tu slider. 
+ 
+ 4.- background: red;: Establece el fondo del botón de navegación en rojo cuando se cumplan todas las 
+ condiciones anteriores.*/
+#Radio2:checked ~ .NavegacionAuto .AutoBoton2{
+    background: red;
+}
+#Radio3:checked ~ .NavegacionAuto .AutoBoton3{
+    background: red;
+}
+nav {
+    background-color: rgb(163, 163, 103);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 50px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    position: relative; /* Contexto de posicionamiento relativo */
+  }
+  
+  nav a::before {
+    content: "|";
+    position: absolute;
+    left: -10px; /* Ajusta la posición de la barra */
+  }
+  nav a:first-child::before {
+    content: none;
+  }
+  .ContendorPadre {
+    display: flex;
+    overflow-x: hidden;
+    width: auto; /* O el valor que desees */
+    transition: margin-left 0.5s; /* Agrega una transición suave solo para margin-left */
+    
+  }
+  .ContenedorQueOfrecemos p{
+    margin-left: 20px;
+    font-size: 20px;
+    word-spacing: 2px;
+  }
+  .ContenedorQueOfrecemos img{
+    border-radius: 30px;
+    display:flex;
+    width: 800px;
+    margin-left: 150px;
+  }
+  .ContendorPadre {
+    /* Tu estilo actual para .ContendorPadre */
+    transition: margin-left 0.5s; /* Agrega una transición suave */
+}
+
+.ContendorPadre.active {
+    margin-left: var(--target-position); /* Mueve el contenedor al valor deseado */
+}
+
+  .ContenedorQueOfrecemos{
+    display: flex;
+
+  }
+  .ContenedoresTextoOfrecemos{
+    display: flex;
+    align-items: center;
+    width: 670px;
+    margin-left: -270px;
+  }
+  .ContenedorContactanos{
+    display: flex;
+  }
+  .ContenedorContactanos img{
+    height: 300px;
+    width: 300px;
+    margin-left: 20px;
+    
+  }
+  .ContenedorTituloOfrecemos{
+    margin-left: 30px;
+    white-space: nowrap;
+  }
+  .ContenedorFormulario{
+    display: flex;
+    margin-left: 30px;
+  }
+  .ContendorOpinion{
+    margin-left: 300px;
+    height: 500px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+  }
+  .ContendorOpinion textarea{
+    width: 600px; 
+    height: 250px;
+     resize: none;
+  }
+  .BotonEnviar{
+    background-color: rgb(255, 255, 255);;
+    width: 100px;
+    transform: translateX(-120px);
+    margin-top: 50px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  .BotonEnviar:hover{
+    background-color: rgb(96, 94, 94);
+    transition: 0.5s;
+  }
+  .BotonEnviar:active{
+    background-color: rgb(96, 94, 94);
+    color:white;
+    border-radius: 30px;
+  }
+  .ContenedorFormulario label:hover{
+    transition: 0.3s;
+    color:rgb(0, 255, 38);
+    -webkit-text-stroke: 0.5px black;
+  }
